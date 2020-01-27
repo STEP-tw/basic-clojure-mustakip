@@ -39,3 +39,12 @@
     (is (= [2 2 3 4] (duplicate-first [2 3 4]))))
   (testing "empty coll"
     (is (= nil (duplicate-first [])))))
+
+(deftest five-point-someone-test
+  (testing "return :chetan-bhagat if second arg is 5"
+    (is (= :chetan-bhagat (five-point-someone 4 5))))
+  (testing "return :satan-bhagat if first arg is 5"
+    (is (= :satan-bhagat (five-point-someone 5 4))))
+  (testing "return :greece if 1st arg > 2nd arg"
+    (is (= :greece (five-point-someone 7 4))))
+  )
