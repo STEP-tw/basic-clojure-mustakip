@@ -46,5 +46,11 @@
   (testing "return :satan-bhagat if first arg is 5"
     (is (= :satan-bhagat (five-point-someone 5 4))))
   (testing "return :greece if 1st arg > 2nd arg"
-    (is (= :greece (five-point-someone 7 4))))
-  )
+    (is (= :greece (five-point-someone 7 4)))))
+
+(deftest repeat-and-truncate-test
+  (testing "return repeated coll if rep? true and truncate? false"
+    (is (= '(1 2 3 1 2) (take 5 (repeat-and-truncate [1 2 3] true false 0)))))
+  (testing "return flattened truncated coll when both rep? and truncate? are specified true"
+    (is (= '(1 2 3 1 2) (repeat-and-truncate [1 2 3] true true 5)))
+    (is (= '() (repeat-and-truncate [1 2 3] true true 0)))))
