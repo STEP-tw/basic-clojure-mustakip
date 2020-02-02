@@ -54,3 +54,22 @@
   (testing "return flattened truncated coll when both rep? and truncate? are specified true"
     (is (= '(1 2 3 1 2) (repeat-and-truncate [1 2 3] true true 5)))
     (is (= '() (repeat-and-truncate [1 2 3] true true 0)))))
+
+(deftest zero-separated-palindrome-test
+  (testing "normal list"
+    (is (= '(4 3 2 0 2 3 4) (zero-separated-palindrome [1 2 3]))))
+  (testing "empty list"
+    (is (= '(0) (zero-separated-palindrome [])))))
+
+(deftest zero-aliases-test
+  (testing "zero like values"
+    (are [x y] (= x y)
+               :zero (zero-aliases 0)
+               :empty (zero-aliases [])
+               :empty (zero-aliases '())
+               :empty-map (zero-aliases {})
+               :empty-set (zero-aliases #{})))
+  (testing "non zero values"
+    (are [x y] (= x y)
+               :not-zero (zero-aliases 4)
+               :not-zero (zero-aliases "foo"))))
