@@ -129,6 +129,8 @@
    :use          '[as-> reverse]
    :implemented? true}
   [coll]
-  (as-> coll x
-        (map inc x)
-        (concat (reverse x) [0] x)))
+  (if (every? number? coll)
+    (as-> coll x
+          (map inc x)
+          (concat (reverse x) [0] x))
+    coll))

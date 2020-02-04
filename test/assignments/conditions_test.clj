@@ -59,7 +59,9 @@
   (testing "normal list"
     (is (= '(4 3 2 0 2 3 4) (zero-separated-palindrome [1 2 3]))))
   (testing "empty list"
-    (is (= '(0) (zero-separated-palindrome [])))))
+    (is (= '(0) (zero-separated-palindrome []))))
+  (testing "any element is not a number"
+    (is (= [1 2 3 :a] (zero-separated-palindrome [1 2 3 :a])))))
 
 (deftest zero-aliases-test
   (testing "zero like values"
