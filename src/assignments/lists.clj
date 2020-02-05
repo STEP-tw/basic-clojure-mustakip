@@ -226,7 +226,9 @@
   {:level        :easy
    :use          '[map constantly let]
    :implemented? false}
-  [coll])
+  [coll]
+  (let [first-elm (first coll)]
+    (map (constantly (* first-elm first-elm)) coll)))
 
 (defn russian-dolls
   "Given a collection and a number, wrap each element in a nested vector
