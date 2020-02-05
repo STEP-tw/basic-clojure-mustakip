@@ -51,5 +51,10 @@
     (is (= '(2 4) (difference [1 3 5 6] [1 2 3 4 5 6]))))
 
   (testing "union"
-    (is (= '(1 2 3 4 5 6) (union [1 2 3] [4 5 6 3])))))
+    (is (= '(1 2 3 4 5 6) (union [1 2 3] [4 5 6 3]))))
+
+  (testing "palindrome?"
+    (is (true? (palindrome? [1 2 3 2 1])))
+    (is (false? (palindrome? [1 2 3 4 5])))
+    (is (true? (palindrome? [])))))
 

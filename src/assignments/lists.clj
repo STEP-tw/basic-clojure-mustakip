@@ -175,7 +175,7 @@
   if elements repeat."
   {:level        :easy
    :use          '[remove into set ->>]
-   :implemented? false}
+   :implemented? true}
   [coll1 coll2]
   (->> coll2
        (remove (set coll1))
@@ -265,8 +265,12 @@
   {:level        :easy
    :use          '[empty? loop recur butlast rest]
    :dont-use     '[reverse]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (loop [result true palindrome-candidate coll]
+    (if (or (false? result) (empty? palindrome-candidate))
+        result
+        (recur (= (first palindrome-candidate) (last palindrome-candidate)) (rest (butlast palindrome-candidate))))))
 
 (defn index-of
   "index-of takes a sequence and an element and finds the index
