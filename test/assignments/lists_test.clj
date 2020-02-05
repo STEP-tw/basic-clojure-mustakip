@@ -2,7 +2,17 @@
   (:require [clojure.test :refer :all]
             [assignments.lists :refer :all]))
 
-#_(deftest lists
+(deftest lists
   (testing "map"
-    (testing "identity with single coll"
-      (is (= [1 2 3] (map' identity [1 2 3]))))))
+    (testing "mapping single coll)"
+      (are [x y]
+        (= x y)
+        [1 2 3] (map' identity [1 2 3])
+        [2 3 4] (map' inc [1 2 3]))))
+
+  (testing "filter"
+    (testing "single coll"
+      (are [x y]
+        (= x y)
+        '(1 3 5) (filter' odd? [1 2 3 4 5])
+        '(2 4) (filter' even? [1 2 3 4 5])))))

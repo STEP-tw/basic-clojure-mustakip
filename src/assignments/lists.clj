@@ -7,8 +7,15 @@
   {:level        :medium
    :use          '[loop recur]
    :dont-use     '[map]
-   :implemented? false}
-  [f & colls])
+   :implemented? true}
+  [f & colls]
+  (loop [mapped-list [] unmapped-list (first colls)]
+    (if (empty? unmapped-list)
+        mapped-list
+        (recur (conj mapped-list (f (first unmapped-list))) (rest unmapped-list))
+        )
+    )
+  )
 
 (defn filter'
   "Implement a non-lazy version of filter that accepts a
@@ -17,8 +24,15 @@
   {:level        :easy
    :use          '[loop recur]
    :dont-use     '[filter]
-   :implemented? false}
-  [pred coll])
+   :implemented? true}
+  [pred coll]
+  (loop [filtered-coll [] unfiltered-coll coll]
+    (if (empty? unfiltered-coll)
+        filtered-coll
+        (if (pred (first unfiltered-coll))
+            (recur (conj filtered-coll (first unfiltered-coll)) (rest unfiltered-coll))
+            (recur filtered-coll (rest unfiltered-coll))))
+    ))
 
 (defn reduce'
   "Implement your own multi-arity version of reduce
