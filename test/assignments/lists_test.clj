@@ -22,5 +22,12 @@
       4 (count' [1 2 3 4])
       3 (count' '(1 2 3))
       3 (count' #{1 2 3})
-      0 (count' []))))
+      0 (count' [])))
+
+  (testing "reverse"
+    (are [x y]
+      (= x y)
+      '(3 2 1) (reverse' [1 2 3])
+      '([:b 2] [:a 1]) (reverse' {:a 1 :b 2})
+      '() (reverse' []))))
 
