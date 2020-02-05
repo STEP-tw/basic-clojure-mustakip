@@ -29,5 +29,9 @@
       (= x y)
       '(3 2 1) (reverse' [1 2 3])
       '([:b 2] [:a 1]) (reverse' {:a 1 :b 2})
-      '() (reverse' []))))
+      '() (reverse' [])))
+
+  (testing "every?"
+    (is (every?' even? [2 4 6]))
+    (is (not (every?' even? #{1 2 3})))))
 
