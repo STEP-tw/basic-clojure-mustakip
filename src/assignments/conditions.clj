@@ -1,7 +1,7 @@
 (ns assignments.conditions)
 
 (defn does-contain-once-in-same-order [elements coll]
-  (= elements (filter (into #{} elements) coll)))
+  (= elements (filter (set elements) coll)))
 
 (defn safe-divide
   "Returns the result of x/y unless y is 0. Returns nil when y is 0"
