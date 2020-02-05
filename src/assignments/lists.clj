@@ -150,7 +150,7 @@
 (def
   ^{:level        :easy
     :dont-use     '[loop recur for nth get]
-    :implemented? false}
+    :implemented? true}
   transpose
   "Transposes a given matrix.
   [[a b] [c d]] => [[a c] [b d]].
@@ -164,7 +164,7 @@
   {:level        :easy
    :use          '[remove set]
    :dont-use     '[loop recur if]
-   :implemented? false}
+   :implemented? true}
   [coll1 coll2]
   (remove (set coll1) coll2))
 
@@ -176,7 +176,10 @@
   {:level        :easy
    :use          '[remove into set ->>]
    :implemented? false}
-  [coll1 coll2])
+  [coll1 coll2]
+  (->> coll2
+       (remove (set coll1))
+       (into coll1)))
 
 ;; points-around-origin is a def not a defn
 (def

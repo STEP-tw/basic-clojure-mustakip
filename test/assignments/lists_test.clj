@@ -48,5 +48,8 @@
     (is (= [[1 1 1] [2 2 2] [3 3 3]] (transpose [[1 2 3] [1 2 3] [1 2 3]]))))
 
   (testing "difference"
-    (is (= '(2 4) (difference [1 3 5 6] [1 2 3 4 5 6])))))
+    (is (= '(2 4) (difference [1 3 5 6] [1 2 3 4 5 6]))))
+
+  (testing "union"
+    (is (= '(1 2 3 4 5 6) (union [1 2 3] [4 5 6 3])))))
 
