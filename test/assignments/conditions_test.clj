@@ -85,3 +85,11 @@
     (is (= :cleopatra (conditions-apply [[2 3] [4 6] [5 6] [4 5]]))))
   (testing "should return :tuntun if none of the conditions are statisfied"
     (is (= :tuntun (conditions-apply [2 3 :a [2 3] :text])))))
+
+(deftest order-in-words-test
+  (testing "x greater than y and y greater than z"
+    (is (= [:x-greater-than-y :y-greater-than-z] (order-in-words 4 3 2))))
+  (testing "x greater than y and z greater than y"
+    (is (= [:x-greater-than-y :z-greater-than-x] (order-in-words 4 3 5))))
+  (testing "z greater than x"
+    (is (= [:z-greater-than-x] (order-in-words 2 3 4)))))

@@ -104,7 +104,11 @@
   {:level        :easy
    :use          '[cond-> conj]
    :implemented? false}
-  [x y z])
+  [x y z]
+  (cond-> []
+          (> x y) (conj :x-greater-than-y)
+          (> z x) (conj :z-greater-than-x)
+          (> y z) (conj :y-greater-than-z)))
 
 (defn zero-aliases
   "Given a zero-like value(0,[],(),#{},{}) should
