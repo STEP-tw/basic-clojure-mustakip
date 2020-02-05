@@ -207,8 +207,9 @@
   each element repeated twice"
   {:level        :easy
    :use          '[mapcat partial repeat :optionally vector]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (mapcat (partial repeat 2) coll))
 
 (defn third-or-fifth
   "Given a collection return a new collection that contains
@@ -225,7 +226,7 @@
   [4 5 6] => [16 16 16]"
   {:level        :easy
    :use          '[map constantly let]
-   :implemented? false}
+   :implemented? true}
   [coll]
   (let [first-elm (first coll)]
     (map (constantly (* first-elm first-elm)) coll)))

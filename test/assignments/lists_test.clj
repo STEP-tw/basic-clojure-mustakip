@@ -63,5 +63,8 @@
     (is (= -1 (index-of [1 2 3 4 5] 6))))
 
   (testing "sqr-of-the-first"
-    (is (= '(16 16 16) (sqr-of-the-first [4 5 6])))))
+    (is (= '(16 16 16) (sqr-of-the-first [4 5 6]))))
+
+  (testing "double-up"
+    (is (= '(1 1 2 2 3 3) (double-up [1 2 3])))))
 
