@@ -279,8 +279,13 @@
   {:level        :easy
    :use          '[loop recur rest]
    :dont-use     '[.indexOf memfn]
-   :implemented? false}
-  [coll n])
+   :implemented? true}
+  [coll n]
+  (loop [index 0 remaining-coll coll]
+    (cond
+      (empty? remaining-coll) -1
+      (= (first remaining-coll) n) index
+      :else (recur (inc index) (rest remaining-coll)))))
 
 (defn validate-sudoku-grid
   "Given a 9 by 9 sudoku grid, validate it."

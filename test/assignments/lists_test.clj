@@ -56,5 +56,9 @@
   (testing "palindrome?"
     (is (true? (palindrome? [1 2 3 2 1])))
     (is (false? (palindrome? [1 2 3 4 5])))
-    (is (true? (palindrome? [])))))
+    (is (true? (palindrome? []))))
+
+  (testing "index-of"
+    (is (= 2 (index-of [7 6 5 4 3 8] 5)))
+    (is (= -1 (index-of [1 2 3 4 5] 6)))))
 
