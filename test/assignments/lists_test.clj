@@ -69,5 +69,9 @@
     (is (= '(1 1 2 2 3 3) (double-up [1 2 3]))))
 
   (testing "cross-product"
-    (is (= [[1 4] [1 3] [1 5] [2 4] [2 3] [2 5] [3 4]] (cross-product [1 2 3] [4 3 5])))))
+    (is (= [[1 4] [1 3] [1 5] [2 4] [2 3] [2 5] [3 4]] (cross-product [1 2 3] [4 3 5]))))
+
+  (testing "reduce"
+    (is (= 10 (reduce' + [1 2 3 4])))
+    (is (= 20 (reduce' + 10 [1 2 3 4])))))
 

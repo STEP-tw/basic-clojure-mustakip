@@ -42,8 +42,13 @@
    :use          '[loop recur]
    :dont-use     '[reduce]
    :implemented? false}
-  ([f coll])
-  ([f init coll]))
+  ([f coll]
+   (reduce' f (first coll) (rest coll)))
+  ([f init coll]
+   (loop [acc init remaining-list coll]
+     (if (empty? remaining-list)
+         acc
+         (recur (f acc (first remaining-list)) (rest remaining-list))))))
 
 (defn count'
   "Implement your own version of count that counts the
