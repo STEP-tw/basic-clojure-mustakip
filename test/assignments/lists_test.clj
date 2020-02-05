@@ -37,5 +37,9 @@
 
   (testing "some?"
     (is (some?' even? [3 2 5]))
-    (is (not (some?' even? #{1 3})))))
+    (is (not (some?' even? #{1 3}))))
+
+  (testing "ascending?"
+    (is (ascending? [1 2 3]))
+    (is (not (ascending? [3 4 1 2])))))
 
