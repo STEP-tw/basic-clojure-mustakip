@@ -33,5 +33,9 @@
 
   (testing "every?"
     (is (every?' even? [2 4 6]))
-    (is (not (every?' even? #{1 2 3})))))
+    (is (not (every?' even? #{1 2 3}))))
+
+  (testing "some?"
+    (is (some?' even? [3 2 5]))
+    (is (not (some?' even? #{1 3})))))
 
