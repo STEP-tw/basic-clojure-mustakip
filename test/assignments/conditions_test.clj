@@ -75,3 +75,13 @@
     (are [x y] (= x y)
                :not-zero (zero-aliases 4)
                :not-zero (zero-aliases "foo"))))
+
+(deftest conditions-apply-test
+  (testing "should return :wonder-woman if coll has single occurrence of 1 and 3 in that order"
+    (is (= :wonder-woman (conditions-apply [1 2 3]))))
+  (testing "should return :durga if coll has a single occurrence of :a :b and :c in that order"
+    (is (= :durga (conditions-apply [:a :d :b :c]))))
+  (testing "should return :cleopatra if coll has a single occurrence of [2 3] and [4 5] in that order"
+    (is (= :cleopatra (conditions-apply [[2 3] [4 6] [5 6] [4 5]]))))
+  (testing "should return :tuntun if none of the conditions are statisfied"
+    (is (= :tuntun (conditions-apply [2 3 :a [2 3] :text])))))

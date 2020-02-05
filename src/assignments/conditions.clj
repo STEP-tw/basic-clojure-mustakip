@@ -1,5 +1,8 @@
 (ns assignments.conditions)
 
+(defn does-contain-once-in-same-order [elements coll]
+  (= elements (filter (into #{} elements) coll)))
+
 (defn safe-divide
   "Returns the result of x/y unless y is 0. Returns nil when y is 0"
   {:level        :easy
@@ -69,8 +72,13 @@
   {:level        :medium
    :use          '[condp filter]
    :alternates   '[if cond]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (condp does-contain-once-in-same-order coll
+    [1 3] :wonder-woman
+    [:a :b :c] :durga
+    [[2 3] [4 5]] :cleopatra
+    :tuntun))
 
 (defn repeat-and-truncate
   "Given coll and options to repeat and truncate
@@ -130,7 +138,7 @@
    :implemented? true}
   [coll]
   (if (every? number? coll)
-    (as-> coll x
-          (map inc x)
-          (concat (reverse x) [0] x))
-    coll))
+      (as-> coll x
+            (map inc x)
+            (concat (reverse x) [0] x))
+      coll))
