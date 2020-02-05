@@ -41,5 +41,9 @@
 
   (testing "ascending?"
     (is (ascending? [1 2 3]))
-    (is (not (ascending? [3 4 1 2])))))
+    (is (not (ascending? [3 4 1 2]))))
+
+  (testing "transpose"
+    (is (= [[1 1] [2 2]] (transpose [[1 2] [1 2]])))
+    (is (= [[1 1 1] [2 2 2] [3 3 3]] (transpose [[1 2 3] [1 2 3] [1 2 3]])))))
 
