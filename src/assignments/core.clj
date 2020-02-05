@@ -40,7 +40,7 @@
         ;;
         (c/repeat-and-truncate [1 2 3] false false 2)
         (c/repeat-and-truncate [1 2 3] false true 2)
-        (c/repeat-and-truncate [1 2 3] true false 5)
+        (take 10 (c/repeat-and-truncate [1 2 3] true false 5))
         (c/repeat-and-truncate [1 2 3] true true 5)
         ;;
         (c/order-in-words 4 3 2)
