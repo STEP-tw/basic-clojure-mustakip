@@ -191,7 +191,7 @@
   ^{:level        :easy
     :use          '[for]
     :dont-use     '[hardcoded-values map filter]
-    :implemented? false}
+    :implemented? true}
   points-around-origin
   "Calculate all the points around the origin
   [-1 -1] [0 -1] [1 -1] etc. There should be 8 points
@@ -226,8 +226,9 @@
   elements whose index is either divisible by three or five"
   {:level        :easy
    :use          '[keep-indexed when :optionally map-indexed filter]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (keep-indexed #(if (or (= 0 (mod %1 3)) (= 0 (mod %1 5))) %2) coll))
 
 (defn sqr-of-the-first
   "Given a collection, return a new collection that contains the
