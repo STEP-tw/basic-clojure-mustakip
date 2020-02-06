@@ -196,7 +196,7 @@
   "Calculate all the points around the origin
   [-1 -1] [0 -1] [1 -1] etc. There should be 8 points
   Note this is a def, not a defn"
-  #(for [x (range -1 2) y (range -1 2) :when (not (and (= x 0) (= y 0)))]
+  #(for [x (range -1 2) y (range -1 2) :when (not (and (zero? x) (zero? y)))]
      [x y]))
 
 (defn cross-product
@@ -228,7 +228,7 @@
    :use          '[keep-indexed when :optionally map-indexed filter]
    :implemented? true}
   [coll]
-  (keep-indexed #(if (or (= 0 (mod %1 3)) (= 0 (mod %1 5))) %2) coll))
+  (keep-indexed #(if (or (zero? (mod %1 3)) (zero? (mod %1 5))) %2) coll))
 
 (defn sqr-of-the-first
   "Given a collection, return a new collection that contains the
