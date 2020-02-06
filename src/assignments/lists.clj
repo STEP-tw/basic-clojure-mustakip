@@ -249,8 +249,12 @@
   {:level        :medium
    :use          '[iterate mapv partial vector drop first ->>]
    :dont-use     '[for loop recur reduce]
-   :implemented? false}
-  [coll nesting-factor])
+   :implemented? true}
+  [coll nesting-factor]
+  (->> coll
+       (iterate (partial map vector))
+       (take nesting-factor)
+       (last)))
 
 (defn split-comb
   "Given a collection, return a new sequence where the first
