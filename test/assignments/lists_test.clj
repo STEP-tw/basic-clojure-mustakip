@@ -73,5 +73,8 @@
 
   (testing "reduce"
     (is (= 10 (reduce' + [1 2 3 4])))
-    (is (= 20 (reduce' + 10 [1 2 3 4])))))
+    (is (= 20 (reduce' + 10 [1 2 3 4]))))
+
+  (testing "points-around-origin"
+    (is (= '([-1 -1] [-1 0] [-1 1] [0 -1] [0 1] [1 -1] [1 0] [1 1]) (points-around-origin)))))
 

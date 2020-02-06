@@ -195,7 +195,9 @@
   points-around-origin
   "Calculate all the points around the origin
   [-1 -1] [0 -1] [1 -1] etc. There should be 8 points
-  Note this is a def, not a defn")
+  Note this is a def, not a defn"
+  #(for [x (range -1 2) y (range -1 2) :when (not (and (= x 0) (= y 0)))]
+     [x y]))
 
 (defn cross-product
   "Given two sequences, generate every combination in the sequence
