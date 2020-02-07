@@ -103,7 +103,7 @@
   (order-in-words 2 3 4) => [:z-greater-than-x]"
   {:level        :easy
    :use          '[cond-> conj]
-   :implemented? false}
+   :implemented? true}
   [x y z]
   (cond-> []
           (> x y) (conj :x-greater-than-y)

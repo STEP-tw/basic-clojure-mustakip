@@ -82,5 +82,8 @@
     (is (= '(1 4 8) (third-or-fifth [1 2 3 4 5 8]))))
 
   (testing "russian-dolls"
-    (is (= [[[1]] [[2]] [[3]]] (russian-dolls [1 2 3] 3)))))
+    (is (= [[[1]] [[2]] [[3]]] (russian-dolls [1 2 3] 3))))
+
+  (testing "split-comb"
+    (is (= [1 3 2 4 5] (split-comb [1 2 3 4 5])))))
 
