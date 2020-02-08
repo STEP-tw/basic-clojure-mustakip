@@ -41,7 +41,7 @@
   {:level        :medium
    :use          '[loop recur]
    :dont-use     '[reduce]
-   :implemented? false}
+   :implemented? true}
   ([f coll]
    (reduce' f (first coll) (rest coll)))
   ([f init coll]
@@ -282,7 +282,7 @@
   {:level        :easy
    :use          '[map cycle]
    :dont-use     '[loop recur map-indexed take take-nth]
-   :implemented? false}
+   :implemented? true}
   [coll]
   (map-indexed #(if (zero? (mod (inc %1) 3)) 0 %2) coll))
 
