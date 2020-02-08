@@ -229,7 +229,7 @@
    :use          '[keep-indexed when :optionally map-indexed filter]
    :implemented? true}
   [coll]
-  (keep-indexed #(if (or (zero? (mod %1 3)) (zero? (mod %1 5))) %2) coll))
+  (keep-indexed #(when (or (zero? (mod %1 3)) (zero? (mod %1 5))) %2) coll))
 
 (defn sqr-of-the-first
   "Given a collection, return a new collection that contains the
@@ -240,8 +240,7 @@
    :use          '[map constantly let]
    :implemented? true}
   [coll]
-  (let [first-elm (first coll)]
-    (map (constantly (* first-elm first-elm)) coll)))
+  (map (constantly (* (first coll) (first coll))) coll))
 
 (defn russian-dolls
   "Given a collection and a number, wrap each element in a nested vector
@@ -284,7 +283,8 @@
    :use          '[map cycle]
    :dont-use     '[loop recur map-indexed take take-nth]
    :implemented? false}
-  [coll])
+  [coll]
+  (map-indexed #(if (zero? (mod (inc %1) 3)) 0 %2) coll))
 
 (defn palindrome?
   "Implement a recursive palindrome check of any given sequence"

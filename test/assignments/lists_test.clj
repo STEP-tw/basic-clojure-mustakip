@@ -88,6 +88,9 @@
     (is (= [1 3 2 4 5] (split-comb [1 2 3 4 5]))))
 
   (testing "sum-of-adjacent-digits"
-    (is (= '(3 5) (sum-of-adjacent-digits [1 2 3])))))
+    (is (= '(3 5) (sum-of-adjacent-digits [1 2 3]))))
+
+  (testing "muted-thirds"
+    (is (= '(1 2 0 4 5 0 7) (muted-thirds [1 2 3 4 5 6 7])))))
 
 
