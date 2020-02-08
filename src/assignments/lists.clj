@@ -284,7 +284,7 @@
    :dont-use     '[loop recur map-indexed take take-nth]
    :implemented? true}
   [coll]
-  (map-indexed #(if (zero? (mod (inc %1) 3)) 0 %2) coll))
+  (map * coll (cycle [1 1 0])))
 
 (defn palindrome?
   "Implement a recursive palindrome check of any given sequence"
