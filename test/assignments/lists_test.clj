@@ -85,5 +85,9 @@
     (is (= [[[1]] [[2]] [[3]]] (russian-dolls [1 2 3] 3))))
 
   (testing "split-comb"
-    (is (= [1 3 2 4 5] (split-comb [1 2 3 4 5])))))
+    (is (= [1 3 2 4 5] (split-comb [1 2 3 4 5]))))
+
+  (testing "sum-of-adjacent-digits"
+    (is (= '(3 5) (sum-of-adjacent-digits [1 2 3])))))
+
 
